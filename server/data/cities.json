@@ -1,0 +1,32 @@
+[
+    {
+        "id": "0",
+        "ville": "Delhi",
+        "region": "5"
+    },
+    {
+        "id": "1",
+        "ville": "Mumbai",
+        "region": "9"
+    },
+    {
+        "id": "2",
+        "ville": "Bangalore",
+        "region": "8"
+    },
+    {
+        "id": "3",
+        "ville": "Chennai",
+        "region": "5"
+    },
+    {
+        "id": "4",
+        "ville": "Kolkata",
+        "region": "9"
+    },
+    {
+        "id": "5",
+        "ville": "Indore",
+        "region": "8"
+    }
+]
