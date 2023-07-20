@@ -3,7 +3,6 @@ const Flight = require("../models/flightModel");
 const User = require("../models/usersModel");
 const stripe = require("stripe")(process.env.STRIPE_KEY);
 const { v4: uuidv4 } = require("uuid");
-const nodemailer = require("nodemailer");
 require("dotenv").config();
 const moment = require("moment");
 
