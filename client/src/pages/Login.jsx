@@ -66,7 +66,7 @@ function Login() {
           }}
         />
 
-        <div className="flex w-full lg:w-1/2 justify-center items-center space-y-8">
+<div className="flex w-full lg:w-1/2 justify-center items-center space-y-8">
           <div className="w-3/4 px-8 md:px-32 lg:px-24">
             <div className="flex flex-col items-center mb-10">
               <Link
@@ -95,7 +95,7 @@ function Login() {
                 <span className="relative invisible">Button Text</span>
               </Link>
             </div>
-            <h1 className="mb-8 text-5xl text-center font-bold italic">
+            <h1 className="mb-8 text-4xl text-center font-bold italic text-blue-900">
               Login
             </h1>
             <Form.Item
@@ -215,14 +215,7 @@ function Login() {
                 Register
               </Link>
             </p>
-            <p className="text-center text-base text-gray-600">
-              <Link
-                to="/forgot-password"
-                className="text-blue-600 font-bold hover:text-blue-700"
-              >
-                Forgot Password ?
-              </Link>
-            </p>
+            
           </div>
         </div>
       </Form>

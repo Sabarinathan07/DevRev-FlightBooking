@@ -11,10 +11,11 @@ function SeatSelection({ selectedSeats, setSelectedSeats, flight }) {
       setSelectedSeats([...selectedSeats, seatNumber]);
     }
   };
+
   return (
     <div className="m-5">
-      <div className="w-[300px] border-2 text-xl font-bold border-blue-500 rounded p-[10px]">
-        <Row gutter={[10, 10]}>
+      <div className="w-[380px] border-2 text-xl font-bold border-blue-500 rounded p-[10px]">
+        <Row gutter={[20, 10]}> {/* Increased the gutter between columns */}
           {Array.from(Array(capacity).keys()).map((seat, key) => {
             let seatClass = `btn btn-circle btn-outline bg-white cursor-pointer hover:bg-blue-600`;
             selectedSeats.includes(seat + 1);
@@ -25,7 +26,7 @@ function SeatSelection({ selectedSeats, setSelectedSeats, flight }) {
             }
 
             return (
-              <Col key={key} span={6}>
+              <Col key={key} span={4}> {/* Changed span value to 4 */}
                 <div className="flex justify-center items-center">
                   <div
                     className={`border-[1px] text-black p-3 ${seatClass}`}

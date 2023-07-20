@@ -33,7 +33,7 @@ function DefaultLayout({ children }) {
     {
       name: "Flights",
       path: "/admin/flights",
-      icon: "ri-bus-line",
+      icon: "ri-plane-line",
     },
     {
       name: "Users",

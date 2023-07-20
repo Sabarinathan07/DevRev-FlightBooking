@@ -87,7 +87,7 @@ function Register() {
                   <span className="relative invisible">Button Text</span>
                 </Link>
               </div>
-              <h1 className="mb-8 text-5xl text-center font-bold italic">
+              <h1 className="mb-8 text-4xl text-center font-bold italic text-blue-900">
                 Register
               </h1>
               <Form.Item

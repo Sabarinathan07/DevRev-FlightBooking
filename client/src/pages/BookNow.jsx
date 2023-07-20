@@ -87,88 +87,90 @@ function BookNow() {
         <title>Book Now</title>
       </Helmet>
       <div>
-        {flight && (
-          <Row className="m-3 p-5" gutter={[30, 30]}>
-            <Col lg={12} xs={24} sm={24}>
-              <h1 className="font-extrabold text-2xl text-blue-500">
-                {flight.name}
-              </h1>
-              <h1 className="text-2xl font-bold">
-                {flight.from} - {flight.to}
-              </h1>
-              <hr className="border-black" />
+        <div className="bg-white">
+          {flight && (
+            <Row className="m-3 p-5" gutter={[30, 30]}>
+              <Col lg={12} xs={24} sm={24}>
+                <h1 className="font-extrabold text-2xl text-blue-500">
+                  {flight.name}
+                </h1>
+                <h1 className="text-2xl font-bold">
+                  {flight.from} - {flight.to}
+                </h1>
+                <hr className="border-black" />
 
-              <div className="flex flex-col gap-1 ">
-                <h1 className="text-lg">
-                  <b className="text-blue-600 italic">Journey Date : </b>
-                  <span className="">{flight.journeyDate}</span>
-                </h1>
+                <div className="flex flex-col gap-1 ">
+                  <h1 className="text-lg">
+                    <b className="text-blue-600 italic">Journey Date : </b>
+                    <span className="">{flight.journeyDate}</span>
+                  </h1>
 
-                <h1 className="text-lg">
-                  <b className="text-blue-600 italic">Price :</b> DH {flight.price}{" "}
-                  /-
-                </h1>
-                <h1 className="text-lg">
-                  <b className="text-blue-600 italic">Departure Time</b> :{" "}
-                  {moment(flight.departure, "HH:mm").format("hh:mm A")}
-                </h1>
-                <h1 className="text-lg">
-                  <b className="text-blue-600 italic">Arrival Time</b> :{" "}
-                  {moment(flight.arrival, "HH:mm").format("hh:mm A")}
-                </h1>
-              </div>
-              <hr className="border-black" />
+                  <h1 className="text-lg">
+                    <b className="text-blue-600 italic">Price :</b> DH {flight.price}{" "}
+                    /-
+                  </h1>
+                  <h1 className="text-lg">
+                    <b className="text-blue-600 italic">Departure Time</b> :{" "}
+                    {moment(flight.departure, "HH:mm").format("hh:mm A")}
+                  </h1>
+                  <h1 className="text-lg">
+                    <b className="text-blue-600 italic">Arrival Time</b> :{" "}
+                    {moment(flight.arrival, "HH:mm").format("hh:mm A")}
+                  </h1>
+                </div>
+                <hr className="border-black" />
 
-              <div className="flex w-60 flex-col ">
-                <h1 className="text-lg mt-2 font-bold">
-                  <span className="text-blue-600 italic">Capacity : </span>{" "}
-                  <p>{flight.capacity}</p>
-                </h1>
-                <h1 className="text-lg font-bold">
-                  <span className="text-blue-600 italic">Seats Left : </span>{" "}
-                  <p>{flight.capacity - flight.seatsBooked.length}</p>
-                </h1>
-              </div>
-              <hr className="border-black" />
+                <div className="flex w-60 flex-col ">
+                  <h1 className="text-lg mt-2 font-bold">
+                    <span className="text-blue-600 italic">Capacity : </span>{" "}
+                    <p>{flight.capacity}</p>
+                  </h1>
+                  <h1 className="text-lg font-bold">
+                    <span className="text-blue-600 italic">Seats Left : </span>{" "}
+                    <p>{flight.capacity - flight.seatsBooked.length}</p>
+                  </h1>
+                </div>
+                <hr className="border-black" />
 
-              <div className="flex flex-col gap-2 w-48 ">
-                <h1 className="text-xl">
-                  <b className="text-blue-600 italic">Selected Seats : </b>{" "}
-                  {selectedSeats.join(", ")}
-                </h1>
-                <h1 className="text-xl mt-2 mb-3">
-                  <b className="text-blue-600 italic"> Price :</b> DH{" "}
-                  {flight.price * selectedSeats.length}
-                </h1>
+                <div className="flex flex-col gap-2 w-48 ">
+                  <h1 className="text-xl">
+                    <b className="text-blue-600 italic">Selected Seats : </b>{" "}
+                    {selectedSeats.join(", ")}
+                  </h1>
+                  <h1 className="text-xl mt-2 mb-3">
+                    <b className="text-blue-600 italic"> Price :</b> ₹{" "}
+                    {flight.price * selectedSeats.length}
+                  </h1>
 
-                <StripeCheckout
-                  billingAddress
-                  disabled={selectedSeats.length === 0}
-                  token={onToken}
-                  amount={flight.price * selectedSeats.length * 100}
-                  currency="INR"
-                  stripeKey="null"
-                >
-                  <button
-                    className={`${selectedSeats.length === 0
-                      ? "animate-none cursor-not-allowed btn btn-primary py-2 px-5 rounded-full btn-disabled text-white"
-                      : "animate-bounce btn btn-primary py-2 px-5 rounded-full bg-blue-600 hover:bg-blue-800 hover:duration-300 text-white"
-                      }`}
+                  <StripeCheckout
+                    billingAddress
+                    disabled={selectedSeats.length === 0}
+                    token={onToken}
+                    amount={flight.price * selectedSeats.length * 100}
+                    currency="INR"
+                    stripeKey="pk_test_51NW27rSIC7AEjJbKucZWM55W5x30HPewYFOzYqhefQW3AIuQzRt3TmiAwVTVYATctXXL9Mn5Ygw9j03TsKdmbG0j00UkWRQzq0"
                   >
-                    Pay Now
-                  </button>
-                </StripeCheckout>
-              </div>
-            </Col>
-            <Col lg={12} xs={24} sm={24}>
-              <SeatSelection
-                selectedSeats={selectedSeats}
-                setSelectedSeats={setSelectedSeats}
-                flight={flight}
-              />
-            </Col>
-          </Row>
-        )}
+                    <button
+                      className={`${selectedSeats.length === 0
+                        ? "animate-none cursor-not-allowed btn btn-primary py-2 px-5 rounded-full btn-disabled text-white"
+                        : "animate-bounce btn btn-primary py-2 px-5 rounded-full bg-blue-600 hover:bg-blue-800 hover:duration-300 text-white"
+                        }`}
+                    >
+                      Pay Now
+                    </button>
+                  </StripeCheckout>
+                </div>
+              </Col>
+              <Col lg={12} xs={24} sm={24}>
+                <SeatSelection
+                  selectedSeats={selectedSeats}
+                  setSelectedSeats={setSelectedSeats}
+                  flight={flight}
+                />
+              </Col>
+            </Row>
+          )}
+        </div>
       </div>
     </>
   );
