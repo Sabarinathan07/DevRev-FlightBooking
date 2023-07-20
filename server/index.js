@@ -12,7 +12,7 @@ const dbConfig = require("./config/dbConfig");
 const bodyParser = require("body-parser");
 
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://flight-booking-devrev.vercel.app/'],
+    origin: ['https://flight-booking-devrev.vercel.app', 'http://localhost:3000'],
     methods: ['GET', 'POST', 'PUT','DELETE'],
     headers: ['Content-Type', 'Authorization']
 }));
