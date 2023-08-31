@@ -12,9 +12,11 @@ const dbConfig = require("./config/dbConfig");
 const bodyParser = require("body-parser");
 
 app.use(cors({
-    origin: ['https://flight-booking-devrev.vercel.app', 'http://localhost:3000'],
-    methods: ['GET', 'POST', 'PUT','DELETE'],
-    headers: ['Content-Type', 'Authorization']
+    origin: ['https://codebridge-sabarinathan07.vercel.app/', 'http://localhost:3000'],
+    methods: ['GET', 'POST', 'PUT','DELETE','OPTIONS','PATCH'],
+    headers: ['Content-Type', 'Authorization','Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  ]
 }));
 app.use(express.json());
 app.use(bodyParser.json());
